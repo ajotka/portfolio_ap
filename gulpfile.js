@@ -6,7 +6,7 @@ gulp.task('browser-sync', function () {
     var files = [
         'public/*.html',
         'src/css/*.scss',
-        'src/js/*.js'
+        'assets/js/*.js'
     ];
 
     browserSync.init(files, {
@@ -26,7 +26,7 @@ gulp.task('sass', function(){
 });
 gulp.task('watch', function(){
     gulp.watch('src/css/styles.scss', ['sass']);
-
+    gulp.watch('assets/js/*.js', ['jshint']);
     // Other watchers
 });
 
