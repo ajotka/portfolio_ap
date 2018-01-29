@@ -272,12 +272,10 @@ body {
       max-width: 100%;
     }
 
-<<<<<<< HEAD
       @include respond-to('small') {
         flex: 1 0 auto;
         justify-content: center;
       }
-=======
     @include respond-to('small') {
       padding: 2em;
       flex: 1 0 50%;
@@ -286,13 +284,43 @@ body {
     }
     @include respond-to('large') {
 
->>>>>>> b97c29474fc64fd39307a683f1b74e8c86fcc178
     }
   }
 
 /*================== cooperation ==================*/
-.cooperation__image{
-  @extend .realizations__image;
-  background-image: url("/assets/img/bg/wspolpraca2min.jpg");
+#cooperation {
+  .row {
+    flex-wrap: wrap;
+  }
 }
+  .cooperation__image {
+    @extend .realizations__image;
+    background-image: url("/assets/img/bg/wspolpraca2min.jpg");
+  }
+
+  .cooperation__text {
+    font-size: 20px;
+    justify-content: center;
+    margin: 0 15vw 0 15vw;
+  }
+
+  .icon {
+    padding: 15px;
+  }
+
 /*================== contact ==================*/
+#contact {
+  .container {
+    max-height: 30vw;
+    min-height: 10vw;
+    background-color: #333;
+    padding-top: 30px;
+  }
+  .row {
+    width: 100%;
+  }
+  .contact__info {
+    padding: 20px;
+    color: #ffffff;
+  }
+}
