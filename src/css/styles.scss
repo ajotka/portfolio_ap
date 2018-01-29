@@ -246,7 +246,7 @@ body {
       }
 
       @include respond-to('small') {
-      flex: 1 0 50%;
+        flex: 1 0 auto;
         justify-content: center;
       }
     }
