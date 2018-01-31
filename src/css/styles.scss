@@ -272,12 +272,11 @@ body {
       max-width: 100%;
     }
 
-<<<<<<< HEAD
       @include respond-to('small') {
         flex: 1 0 auto;
         justify-content: center;
       }
-=======
+
     @include respond-to('small') {
       padding: 2em;
       flex: 1 0 50%;
@@ -286,7 +285,6 @@ body {
     }
     @include respond-to('large') {
 
->>>>>>> b97c29474fc64fd39307a683f1b74e8c86fcc178
     }
   }
 
