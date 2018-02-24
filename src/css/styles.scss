@@ -29,6 +29,14 @@ $breakpoints: (
   }
 }
 
+/* end breakpoints */
+
+/* variable */
+$font-family-body: 'Source Sans Pro', sans-serif;
+$font-family-header: 'Dosis', sans-serif;
+
+/* end variable */
+
 * {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
@@ -37,7 +45,14 @@ $breakpoints: (
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Cambay', sans-serif;
+}
+
+p {
+  font-family: $font-family-body;
+}
+
+h1,h2,h3,h4,h5 {
+  font-family: $font-family-header;
 }
 
 .container {
@@ -69,11 +84,6 @@ body {
 .logo {
   position: absolute;
 }
-
-  //@include respond-to('small'){
-  //  display: inline-block;
-  //}
-
 
  .bar1, .bar2, .bar3{
   width: 35px;
@@ -120,6 +130,10 @@ body {
     & a {
       text-decoration: none;
       color: #333333;
+      font-family: $font-family-header;
+      &.active {
+        color: #337ab7;
+      }
     }
   }
 }
@@ -217,7 +231,7 @@ body {
   text-transform: uppercase;
 
   @include respond-to('small') {
-    font-size: 50px;
+    font-size: 55px;
   }
 }
 
@@ -275,6 +289,7 @@ body {
   letter-spacing: 2px;
   text-transform: uppercase;
   border-radius: 40px;
+  font-family: $font-family-body;
 }
 
 .project:hover .project__image{
@@ -329,9 +344,6 @@ body {
         padding: 0 20px;
       }
     }
-    & .contact__text {
-      font-family: 'Cambay', sans-serif;
-    }
   }
 
   .contact__info {
@@ -347,6 +359,10 @@ body {
       padding: 0 0 10px 0;
     }
   }
+}
+
+.contact__text {
+  font-family: $font-family-body;
 }
 
 .contact__header:after {
