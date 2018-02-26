@@ -96,9 +96,65 @@
 // });
 
 /*third */
-// const menuLink = document.getElementsByClassName("menu");
-// const destination = document.getElementById("realizations");
+// (function (){
 //
-// menuLink.onclick = function() {
-//     destination.scrollIntoView({behavior: 'smooth'});
+// const menuLink = document.getElementsByClassName("menu__nav")[0];
+// // const destination = document.getElementById("realizations");
+//
+// menuLink.scrollIntoView({behavior: 'smooth'});
+//
+// // document.getElementsByClassName('menu__nav')[0].scrollIntoView({behavior: 'smooth'});
+// //
+// // menuLink.onclick = function() {
+// //     destination.scrollIntoView({behavior: 'smooth'});
+// }) ()
+
+/* 4 */
+// 'use strict';
+//
+// scrollTo = function scrollTo(element) {
+//     window.scroll({
+//         behavior: 'smooth',
+//         left: 0,
+//         top: element.offsetTop
+//     });
+//     console;
 // };
+//
+// document.getElementById("top").addEventListener('click', function () {
+//     scrollTo(document.getElementById("top"));
+// });
+//
+// document.getElementById("realizations").addEventListener('click', function () {
+//     scrollTo(document.getElementById("realizations"));
+// });
+//
+// document.getElementById("cooperation").addEventListener('click', function () {
+//     scrollTo(document.getElementById("cooperation"));
+// });
+
+/* 5 jest ok dla jednego id*/
+// var link = document.getElementById('top');
+// var section = document.getElementById('top');
+//
+// link.addEventListener('click', function (e) {
+//     e.preventDefault(); // prawdopodobnie musisz dodać taką linijkę, pamiętaj by w parametrze podać 'e'
+//     section.scrollIntoView({ behavior: 'smooth' });
+// });
+
+var links = document.querySelectorAll('ul.menu__nav li a');
+var section = document.getElementById('top');
+
+for (var i = 0; i < links.length; i++) {
+    console.log(links[i]);
+}
+
+for (var i = 0; i < section.length; i++) {
+    console.log(section[i]);
+}
+
+links.addEventListener('click', function (e) {
+    e.preventDefault(); // prawdopodobnie musisz dodać taką linijkę, pamiętaj by w parametrze podać 'e'
+    section.scrollIntoView({ behavior: 'smooth' });
+});
+
