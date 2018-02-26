@@ -10,151 +10,34 @@
 })()
 /* end menu */
 
-// (function(){
-//     var projectHover = document.getElementsByClassName('project');
-//     projectHover.addEventListener('mouseenter', function() {
-//         document.getElementsByClassName('project__btn').classList.toggle(":hover");
-//         console.log(projectHover);
-//     })
-// })()
+/* smooth scroll */
+function handleLinkClick (e) {
+    e.preventDefault();
 
-/* scroll page */
-// function scrollToY(e, t, n) {
-//     function o() {
-//         var t = (i += 1 / 40) / a,
-//             u = c[n](t);
-//         t < 1 ? (requestAnimFrame(o), window.scrollTo(0, r + (e - r) * u)) : window.scrollTo(0, e)
-//     }
-//     var r = window.scrollY || document.documentElement.scrollTop,
-//         i = 0;
-//     e = e || 0, t = t || 2e3, n = n || "easeOutSine";
-//     var a = Math.max(.1, Math.min(Math.abs(r - e) / t, .8)),
-//         c = {
-//             easeOutSine: function(e) {
-//                 return Math.sin(e * (Math.PI / 2))
-//             },
-//             easeInOutSine: function(e) {
-//                 return -.5 * (Math.cos(Math.PI * e) - 1)
-//             },
-//             easeInOutQuint: function(e) {
-//                 return (e /= .5) < 1 ? .5 * Math.pow(e, 5) : .5 * (Math.pow(e - 2, 5) + 2)
-//             }
-//         };
-//     o()
-// }
-//
-//
-// function menuControl(e) {
-//     for (var t = window.scrollY || document.documentElement.scrollTop, n = e.querySelectorAll('a[href^="#"]'), o = 0; o < n.length; o++) {
-//         var r = n[o],
-//             i = document.querySelector(r.getAttribute("href"));
-//         i.offsetTop <= t && i.offsetTop + i.clientHeight > t ? r.classList.add("active") : r.classList.remove("active")
-//     }
-// }
-//
-// function animated(e, t, n) {
-//     var o, r = e.querySelectorAll('a[href^="#"]');
-//     for (o = 0; o < r.length; o++) r[o].addEventListener("click", function(e) {
-//         e.preventDefault(), scrollToY(document.querySelector(this.hash).offsetTop, t, n)
-//     })
-// }
-//
-// function scrollSpy(e, t, n) {
-//     animated(e, t, n), document.addEventListener("scroll", function() {
-//         menuControl(e)
-//     })
-// }
-// window.requestAnimFrame = window.requestAnimationFrame || window.webkitRequestAnimationFrame || window.mozRequestAnimationFrame || function(e) {
-//     window.setTimeout(e, 1e3 / 60)
-// };
-//
-//
-// // Initialize
-// var menu = document.querySelector('.menu__nav');
-// scrollSpy(menu, 1);
-
-/* second nav scroll */
-// scrollTo = (element) => {
-//     window.scroll({
-//         behavior: 'smooth',
-//         left: 0,
-//         top: element.offsetTop
-//     });
-//     console
-// }
-//
-// document.getElementById("realizations").addEventListener('click', () => {
-//     scrollTo(document.getElementsByClassName("cooperation__image"));
-// });
-//
-// document.getElementById("cooperation").addEventListener('click', () => {
-//     scrollTo(document.getElementById("cooperation"));
-// });
-//
-// document.getElementById("contact").addEventListener('click', () => {
-//     scrollTo(document.getElementById("contact"));
-// });
-
-/*third */
-// (function (){
-//
-// const menuLink = document.getElementsByClassName("menu__nav")[0];
-// // const destination = document.getElementById("realizations");
-//
-// menuLink.scrollIntoView({behavior: 'smooth'});
-//
-// // document.getElementsByClassName('menu__nav')[0].scrollIntoView({behavior: 'smooth'});
-// //
-// // menuLink.onclick = function() {
-// //     destination.scrollIntoView({behavior: 'smooth'});
-// }) ()
-
-/* 4 */
-// 'use strict';
-//
-// scrollTo = function scrollTo(element) {
-//     window.scroll({
-//         behavior: 'smooth',
-//         left: 0,
-//         top: element.offsetTop
-//     });
-//     console;
-// };
-//
-// document.getElementById("top").addEventListener('click', function () {
-//     scrollTo(document.getElementById("top"));
-// });
-//
-// document.getElementById("realizations").addEventListener('click', function () {
-//     scrollTo(document.getElementById("realizations"));
-// });
-//
-// document.getElementById("cooperation").addEventListener('click', function () {
-//     scrollTo(document.getElementById("cooperation"));
-// });
-
-/* 5 jest ok dla jednego id*/
-// var link = document.getElementById('top');
-// var section = document.getElementById('top');
-//
-// link.addEventListener('click', function (e) {
-//     e.preventDefault(); // prawdopodobnie musisz dodać taką linijkę, pamiętaj by w parametrze podać 'e'
-//     section.scrollIntoView({ behavior: 'smooth' });
-// });
+    document
+        .querySelector(e.target.hash)
+        .scrollIntoView({ behavior: 'smooth' });
+}
 
 var links = document.querySelectorAll('ul.menu__nav li a');
-var section = document.getElementById('top');
 
 for (var i = 0; i < links.length; i++) {
-    console.log(links[i]);
+    links[i].addEventListener('click', handleLinkClick);
 }
 
-for (var i = 0; i < section.length; i++) {
-    console.log(section[i]);
+/* end smooth scroll */
+
+// Get the container element
+var btnContainer = document.getElementsByClassName("menu__nav");
+
+// Get all buttons with class="btn" inside the container
+var btns = btnContainer.querySelectorAll('link');
+
+// Loop through the buttons and add the active class to the current/clicked button
+for (var i = 0; i < btns.length; i++) {
+    btns[i].addEventListener("click", function() {
+        var current = document.getElementsByClassName("active");
+        current[0].className = current[0].className.replace(" active", "");
+        this.className += " active";
+    });
 }
-
-links.addEventListener('click', function (e) {
-    e.preventDefault(); // prawdopodobnie musisz dodać taką linijkę, pamiętaj by w parametrze podać 'e'
-    section.scrollIntoView({ behavior: 'smooth' });
-});
-
